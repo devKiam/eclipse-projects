@@ -17,7 +17,9 @@ import javax.swing.JPanel;
 
 public class GameRun extends JPanel implements KeyListener,ActionListener {
     private boolean play=false;  
-    private int score=0;
+    private int score=0, s2 = 0, s3 = 0, s4 = 0, s5 = 0, s6 = 0;
+    public int gameruncounter = 0;
+    
     private int totalBricks=21;
     private Timer timer, t;
     private int dealy=8;
@@ -34,6 +36,8 @@ public class GameRun extends JPanel implements KeyListener,ActionListener {
     
     public GameRun() { 	////////constructor
     	///////Send the parametar values map method 
+    	gameruncounter++;
+    	
     	map_obj = new AreaGenerator(3,7);
     	addKeyListener(this);
     	setFocusable(true);
@@ -202,6 +206,151 @@ public class GameRun extends JPanel implements KeyListener,ActionListener {
     	
     ///////////Scoreing and Game over Function..........
     	if(ballposY>570) {
+    		
+    		if(main.g == 0) {
+    			//s2 = score;
+    			if(score > s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = s2;
+        			s2 = score;
+        		}
+        		else if(score > s3 && score < s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = score;
+        		}
+        		else if(score < s3 && score > s4) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = score;
+        		}
+        		else if(score < s4 && score > s5) {
+        			s6 = s5;
+        			s5 = score;
+        		}
+        		else if(score < s5 && score > s6) {
+        			s6 = score;
+        		}
+    		}
+    		else if(main.g  == 1) {
+    			//s3 = score;
+    			if(score > s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = s2;
+        			s2 = score;
+        		}
+        		else if(score > s3 && score < s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = score;
+        		}
+        		else if(score < s3 && score > s4) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = score;
+        		}
+        		else if(score < s4 && score > s5) {
+        			s6 = s5;
+        			s5 = score;
+        		}
+        		else if(score < s5 && score > s6) {
+        			s6 = score;
+        		}
+    		}
+    		else if(main.g  == 2) {
+    			//s4 = score;
+    			if(score > s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = s2;
+        			s2 = score;
+        		}
+        		else if(score > s3 && score < s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = score;
+        		}
+        		else if(score < s3 && score > s4) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = score;
+        		}
+        		else if(score < s4 && score > s5) {
+        			s6 = s5;
+        			s5 = score;
+        		}
+        		else if(score < s5 && score > s6) {
+        			s6 = score;
+        		}
+    		}
+    		else if(main.g  == 3) {
+    			//s5 = score;
+    			if(score > s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = s2;
+        			s2 = score;
+        		}
+        		else if(score > s3 && score < s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = score;
+        		}
+        		else if(score < s3 && score > s4) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = score;
+        		}
+        		else if(score < s4 && score > s5) {
+        			s6 = s5;
+        			s5 = score;
+        		}
+        		else if(score < s5 && score > s6) {
+        			s6 = score;
+        		}
+    		}
+    		else if(main.g  == 4) {
+    			//s6 = score;
+    			if(score > s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = s2;
+        			s2 = score;
+        		}
+        		else if(score > s3 && score < s2) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = s3;
+        			s3 = score;
+        		}
+        		else if(score < s3 && score > s4) {
+        			s6 = s5;
+        			s5 = s4;
+        			s4 = score;
+        		}
+        		else if(score < s4 && score > s5) {
+        			s6 = s5;
+        			s5 = score;
+        		}
+        		else if(score < s5 && score > s6) {
+        			s6 = score;
+        		}
+    		}
+    		
+    		
+    		
+    		
     		play=false;
     		ballXdir=0;
     		ballYdir=0;
@@ -212,6 +361,13 @@ public class GameRun extends JPanel implements KeyListener,ActionListener {
     		
     		g.setFont(new Font("serif",Font.BOLD,20));
     		g.drawString("Press Enter To Restarting Game.", 200, 370);
+    		
+    		g.setFont(new Font("serif",Font.BOLD,20));
+    		g.drawString("Recent High Score: "+s2, 235, 400);
+    		g.drawString("Recent High Score: "+s3, 235, 420);
+    		g.drawString("Recent High Score: "+s4, 235, 440);
+    		g.drawString("Recent High Score: "+s5, 235, 460);
+    		g.drawString("Recent High Score: "+s6, 235, 480);
     	}
     	
     	g.dispose(); // end of all level

@@ -11,6 +11,7 @@ public class AreaGenerator {
    public int brickHeight;
    
    public AreaGenerator(int row,int col) {
+	   main.g++;
 	   map = new int[row][col]; /////array size get here;
 	   
 	   /////get full Rectangle area for bricks array by loop
